@@ -6,8 +6,7 @@ using namespace cv;
 class histogram{
     Mat h;
     Mat z,zt;
-    Mat D,A;
-
+    Mat A,D;
 public:
     histogram * next;
     histogram * previous;
@@ -16,6 +15,8 @@ public:
     ~histogram(){}
 
     void BuildHistogram(float Histogram[6][6]);
+    void CalHistogram(histogram*);
+    Mat Geth()const{return h;}
 };
 
 #endif // HISTOGRAM

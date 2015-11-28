@@ -17,7 +17,8 @@ void TransitionDetect::GetHistogram(float r[32][32], float g[32][32], float (*h)
 
 bool TransitionDetect::AddCols(){
 
-    histogram *his = NULL, *before = NULL, *front = NULL;
+    histogram *his = NULL, *before = NULL, *front = NULL,*temp = NULL;
+
     while(true){
         Mat frame,small_frame;
         vc.read(frame);
@@ -55,8 +56,12 @@ bool TransitionDetect::AddCols(){
             else {
                 before->next = his;
                 his->previous = before;
+                before = before->next;
             }
-
+    }
+    temp = front;
+    for (;temp->next!=NULL;temp = temp->next){
+        temp->CalHistogram(temp->next);
     }
     return true;
 }
