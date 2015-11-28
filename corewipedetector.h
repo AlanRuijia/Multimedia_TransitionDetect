@@ -22,10 +22,11 @@ public:
     TransitionDetect():ColumnCount(0),cols(NULL),end(NULL){}
 
     TransitionDetect(string filename):ColumnCount(0),cols(NULL),end(NULL){
+        cout << "Constructor\n";
         filename = "/home/open/Multimedia/MultiMediaProject/7.mov";
         cout << filename << "at TransitionDetect" << endl;
         vc = VideoCapture(filename);
-
+        cout << "Exit Constructor\n";
     }
 
     ~TransitionDetect(){

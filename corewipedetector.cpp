@@ -16,7 +16,7 @@ void TransitionDetect::GetHistogram(float r[32][32], float g[32][32], float (*h)
 }
 
 bool TransitionDetect::AddCols(){
-
+    cout << "AddCols\n";
     histogram *his = NULL, *before = NULL, *front = NULL,*temp = NULL;
 
     while(true){

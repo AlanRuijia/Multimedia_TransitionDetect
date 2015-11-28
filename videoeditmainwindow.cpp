@@ -48,6 +48,7 @@ void VideoEditMainWindow::on_btnDetect_clicked()
 {
     //TransitionDetect detector(openedFileName.toStdString());
     detector = new TransitionDetect(openedFileName.toStdString());
+    cout << "before AddCols\n";
     detector->AddCols();
 }
 
