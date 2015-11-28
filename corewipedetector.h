@@ -22,7 +22,7 @@ public:
     TransitionDetect():ColumnCount(0),cols(NULL),end(NULL){}
 
     TransitionDetect(string filename):ColumnCount(0),cols(NULL),end(NULL){
-        filename = "/home/open/Multimedia/MultiMediaProject/7.mov";
+        //filename = "/Users/Jerry/Desktop/7.mov";
         cout << filename << "at TransitionDetect" << endl;
         vc = VideoCapture(filename);
 

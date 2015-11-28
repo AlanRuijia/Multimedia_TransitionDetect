@@ -30,6 +30,7 @@ class VideoEditMainWindow : public QMainWindow
 public:
     explicit VideoEditMainWindow(QWidget *parent = 0);
     ~VideoEditMainWindow();
+    TransitionDetect *detector;
 
 private slots:
 
@@ -50,7 +51,7 @@ private:
 
     QString openedFileName;
 
-    TransitionDetect *detector;
+
 
     VideoCapture importedVideo;
 

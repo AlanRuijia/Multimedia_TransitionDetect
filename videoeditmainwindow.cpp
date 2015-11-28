@@ -47,7 +47,10 @@ void VideoEditMainWindow::on_btnBrowse_clicked()
 void VideoEditMainWindow::on_btnDetect_clicked()
 {
     //TransitionDetect detector(openedFileName.toStdString());
+    qDebug() << openedFileName;
+    cout << openedFileName.toStdString() << " at new";
     detector = new TransitionDetect(openedFileName.toStdString());
+    //cout << openedFileName.toStdString() << " at new";
     detector->AddCols();
 }
 
@@ -64,6 +67,8 @@ void VideoEditMainWindow::dropEvent(QDropEvent *event) {
     QString fileName = urlList.first().toLocalFile();
 
     emit didCloseBrowsingDialog(fileName);
+
+    openedFileName = fileName;
     qDebug() << fileName;
 }
 
