@@ -25,6 +25,17 @@ HEADERS  += videoeditmainwindow.h \
 
 FORMS    += videoeditmainwindow.ui
 
-DISTFILES +=
+INCLUDEPATH += /usr/local/opt/opencv3/include
 
-LIBS +=`pkg-config opencv --libs`\
+LIBS += -L/usr/local/opt/opencv3/lib  \
+        -lopencv_core \
+        -lopencv_imgproc \
+        -lopencv_features2d \
+        -lopencv_highgui \
+        -lopencv_video \
+        -lopencv_videoio \
+        -lopencv_videostab \
+        -lopencv_imgcodecs \
+        -lopencv_ml \
+        -lopencv_shape \
+        -lopencv_photo
