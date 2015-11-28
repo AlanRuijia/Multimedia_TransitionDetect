@@ -33,6 +33,9 @@ public:
     bool AddCols();
 
     void GetHistogram(float r[32][32], float g[32][32], float& h[32][32]);
+
+   // void IHistogramDifference(Mat h, Mat d);
+
     Mat OutputImg();
 
 };
