@@ -2,7 +2,7 @@
 #define HISTOGRAM
 
 #include <opencv2/opencv.hpp>
-
+using namespace cv;
 class histogram{
     Mat h;
     Mat z,zt;
@@ -15,7 +15,7 @@ public:
     histogram():next(NULL), previous(NULL){}
     ~histogram(){}
 
-    void BuildHistogram(float h[6][6]);
+    void BuildHistogram(float Histogram[6][6]);
 };
 
 #endif // HISTOGRAM

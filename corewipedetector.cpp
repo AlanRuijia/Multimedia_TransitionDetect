@@ -57,13 +57,6 @@ bool TransitionDetect::AddCols(){
                 his->previous = before;
             }
 
-
-            h = Mat(6,6,CV_32FC1,Histogram).inv();
-            Mat z = Mat(36,1,CV_32FC1,Histogram).inv();
-            Mat zt = Mat(1,36,CV_32FC1,Histogram).inv();
-
-
-
     }
     return true;
 }
