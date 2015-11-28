@@ -1,8 +1,10 @@
 #ifndef COREWIPEDETECTOR_H
 #define COREWIPEDETECTOR_H
 
-#include <opencv2/opencv.hpp>
+#include <vector>
+
 #include "column.h"
+#include "histogram.h"
 
 
 using namespace cv;
@@ -32,7 +34,7 @@ public:
 
     bool AddCols();
 
-    void GetHistogram(float r[32][32], float g[32][32], float& h[32][32]);
+    void GetHistogram(float r[32][32], float g[32][32], float (*)[6][6]);
 
    // void IHistogramDifference(Mat h, Mat d);
 

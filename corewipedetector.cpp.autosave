@@ -4,19 +4,20 @@ CoreWipeDetector::CoreWipeDetector()
 {
 
 }
-void TransitionDetect::GetHistogram(float r[32][32], float g[32][32], float& h[6][6]){
+void TransitionDetect::GetHistogram(float r[32][32], float g[32][32], float (*h)[6][6]){
     float N[6];
     for (int i = 0;i<6;i++)
         N[i] = i/6.0;
     for (int i = 0;i<32;i++){
         for (int j = 0;j < 32 ;j++){
-            h[(int)(r[i][j]/(1.0/6.0))][(int)(g[i][j]/(1.0/6.0))]+=1;
+            (*h)[(int)(r[i][j]/(1.0/6.0))][(int)(g[i][j]/(1.0/6.0))]+=1;
         }
     }
 }
 
 bool TransitionDetect::AddCols(){
 
+    histogram *his = NULL, *before = NULL, *front = NULL;
     while(true){
         Mat frame,small_frame;
         vc.read(frame);
@@ -32,7 +33,7 @@ bool TransitionDetect::AddCols(){
         float g[32][32];
 
         float Histogram[6][6];
-        Mat h;
+        Mat h[2];
         for (int i  = 0;i<6;i++)
             for (int j = 0;j < 6; j++)
                 Histogram[i][j] = 0;
@@ -45,9 +46,22 @@ bool TransitionDetect::AddCols(){
                 g[i][j] = intensity4bits[i][j][1]/total;
                 }
             }
-            GetHistogram(r,g,Histogram);
-            h(6,6,CV_32FC,Histogram).inv();
-            
+            GetHistogram(r,g,&Histogram);
+            his->BuildHistogram(Histogram);
+            if (front == NULL){
+                front = his;
+                before = his;
+            }
+            else {
+                before->next = his;
+                his->previous = before;
+            }
+
+
+
+
+
+
     }
     return true;
 }

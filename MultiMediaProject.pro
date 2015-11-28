@@ -15,11 +15,13 @@ TEMPLATE = app
 SOURCES += main.cpp\
         videoeditmainwindow.cpp \
     corewipedetector.cpp \
-    column.cpp
+    column.cpp \
+    histogram.cpp
 
 HEADERS  += videoeditmainwindow.h \
     corewipedetector.h \
-    column.h
+    column.h \
+    histogram.h
 
 FORMS    += videoeditmainwindow.ui
 
